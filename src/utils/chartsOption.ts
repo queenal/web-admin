@@ -236,4 +236,89 @@ function simpleBar(text?) {
     series: [] as any[],
   };
 }
-export { basicLine, areaLine, ringPie, simplePie, simpleBar };
+function complexPie(text?) {
+  return {
+    title: {
+      text: text,
+      textStyle: {
+        color: '#333333',
+        fontSize: 24,
+      },
+      itemGap: 0, // 主副标题距离
+      left: 'center',
+      top: 'center',
+    },
+    angleAxis: {
+      max: 100,
+      clockwise: true, // 逆时针
+      // 隐藏刻度线
+      show: false,
+      startAngle: 270, // startAngle表示起始角度
+    },
+    radiusAxis: {
+      startAngle: 270, // startAngle表示起始角度
+      clockwise: false, // 逆时针
+      type: 'category',
+      // 隐藏刻度线
+      axisLine: {
+        show: false,
+      },
+      axisTick: {
+        show: false,
+      },
+      axisLabel: {
+        show: false,
+      },
+      splitLine: {
+        show: false,
+      },
+    },
+    polar: {
+      center: ['50%', '50%'],
+      radius: '160%', // 图形大小
+    },
+    series: [
+      {
+        type: 'bar',
+        startAngle: 270,
+        data: [
+          {
+            name: '数量',
+            value: 75,
+            itemStyle: {
+              normal: {
+                color: '#F3CE47',
+              },
+            },
+          },
+        ],
+        coordinateSystem: 'polar',
+        roundCap: true,
+        barWidth: 8,
+        barGap: '-100%', // 两环重叠
+        z: 2,
+      },
+      {
+        // 灰色环
+        type: 'bar',
+        data: [
+          {
+            value: 100,
+            itemStyle: {
+              color: '#F0F0F0',
+              shadowColor: 'rgba(0, 0, 0, 0.03)',
+              shadowBlur: 5,
+              shadowOffsetY: 2,
+            },
+          },
+        ],
+        coordinateSystem: 'polar',
+        roundCap: true,
+        barWidth: 8,
+        barGap: '-100%', // 两环重叠
+        z: 1,
+      },
+    ],
+  };
+}
+export { basicLine, areaLine, ringPie, simplePie, simpleBar, complexPie };
