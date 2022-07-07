@@ -156,7 +156,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zuihou/ec-web-plus.git"
+    "url": "git+https://codes.ai-xuexi.cn/open-code/web-admin.git"
   },
   "license": "MIT",
   "bugs": {
